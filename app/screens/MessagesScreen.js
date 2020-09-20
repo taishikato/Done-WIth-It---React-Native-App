@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList } from 'react-native';
 
 import ListItem from '../components/ListItem';
 import Screen from '../components/Screen';
@@ -31,7 +31,7 @@ const MessagesScreen = () => {
   };
 
   return (
-    <Screen style={styles.container}>
+    <Screen>
       <FlatList
         data={messages}
         keyExtractor={(message) => message.id.toString()}
@@ -63,11 +63,5 @@ const MessagesScreen = () => {
     </Screen>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default MessagesScreen;

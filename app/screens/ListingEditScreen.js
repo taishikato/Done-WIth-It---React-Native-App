@@ -9,6 +9,7 @@ import {
   AppFormPicker as Picker,
 } from '../components/forms';
 import Screen from '../components/Screen';
+import CategoryPickerItem from '../components/CategoryPickerItem';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
@@ -19,22 +20,46 @@ const validationSchema = Yup.object().shape({
 
 const categories = [
   {
-    color: '#fc5c65',
+    backgroundColor: '#fc5c65',
     icon: 'floor-lamp',
     label: 'Furniture',
     value: 1,
   },
   {
-    color: '#2bcbba',
-    icon: 'shoe-heel',
-    label: 'Clothing',
+    backgroundColor: '#fd9644',
+    icon: 'car',
+    label: 'Car',
     value: 2,
   },
   {
-    color: '#fed330',
+    backgroundColor: '#fed330',
     icon: 'camera',
     label: 'Camera',
     value: 3,
+  },
+  {
+    backgroundColor: '#26de81',
+    icon: 'cards',
+    label: 'Games',
+    value: 4,
+  },
+  {
+    backgroundColor: '#2bcbba',
+    icon: 'shoe-heel',
+    label: 'Clothing',
+    value: 5,
+  },
+  {
+    backgroundColor: '#45aaf2',
+    icon: 'basketball',
+    label: 'Sports',
+    value: 6,
+  },
+  {
+    backgroundColor: '#4b7bec',
+    icon: 'headphones',
+    label: 'Movies & Music',
+    value: 7,
   },
 ];
 
@@ -60,15 +85,17 @@ const ListingEditScreen = () => {
             maxLength={8}
             name="price"
             placeholder="Price"
-            style={styles.price}
+            width={120}
           />
         </View>
         <View style={styles.field}>
           <Picker
             items={categories}
             name="category"
+            numberOfColums={3}
+            PickerItemComponent={CategoryPickerItem}
             placeholder="Category"
-            style={styles.category}
+            width="50%"
           />
         </View>
         <View style={styles.field}>
